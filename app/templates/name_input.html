@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Please input your name - it will be added to database</h1>
+    <form action="" method="post" >
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}
+        </p>
+        <p>{{ form.submit_name() }}</p>
+    </form>
+
+    <form action="" method="post" >
+        {{ delete_button.hidden_tag() }}
+
+        <p>{{ delete_button.submit_delete() }}</p>
+
+    </form>
+
+    <form action="" method="post" >
+
+
+        <p>
+            {{ letter_form.letter }}
+            {{ letter_form.letter_submit() }}
+        </p>
+
+    </form>
+
+
+    <table>
+    <thead>
+        <tr>
+
+            <th>Name</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.username }}</td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}
